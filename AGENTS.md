@@ -58,6 +58,46 @@ When the user corrects the agent (“always do X”, “never do Y”, “use Z 
 
 This keeps agent behavior stable across sessions and contributors.
 
+## Arrow of intent (design docs must stay coherent)
+
+This project uses design-driven development. The arrow of intent is:
+
+```
+HLD → LLDs → EARS → Tests → Code
+```
+
+**When the user asks for any code or behavior change, the agent must:**
+
+1. **Read the design docs first** — check `docs/high-level-design.md`, the relevant `docs/designs/<feature>/LLD.md`, and any `docs/designs/<feature>/*-EARS.md` files.
+2. **Assess what needs updating** — identify which HLD decisions, LLD components, or EARS requirements are affected by the change.
+3. **Update design docs before code** — mutate the docs in place at the correct level (HLD for scope/goal changes, LLD for component/interface changes, EARS for requirement changes). Delete what's obsolete.
+4. **Cascade the change** — if the HLD changes, review all linked LLDs; if an LLD changes, review all linked EARS; if an EARS changes, review tests and code.
+5. **Preserve cross-links** — ensure all `## Related Documents` / `## Related Designs` sections remain accurate after edits.
+
+This is **supremely important**. Do not implement a change without first verifying that the design docs reflect the new intent. The documentation should always describe what is actually being built, not what was planned weeks ago.
+
+## Marimo notebook conventions
+
+When creating or editing Marimo notebooks in this repo:
+
+- **Markdown cells sandwich code cells.** Every logical step gets a markdown cell with a heading before the code cell, and a markdown cell with observations after it. This makes the notebook readable and reviewable by humans.
+- **One action per code cell.** Don't put multiple unrelated operations in a single cell. Each cell should do one thing (load data, compute a metric, create a plot).
+- **Use `mo.md()` for markdown cells**, not Python comments. Markdown cells render as rich text in the notebook.
+
+Example structure:
+
+```
+[markdown cell] ## Load activity data
+               Load the IRED activity screening CSV from source.
+
+[code cell]     import cloudscraper
+                import polars as pl
+                ...
+
+[markdown cell] ## Activity distribution
+               The activity data has N variants...
+```
+
 ## Scope and safety
 
 - **Stay within the task** — no broad refactors or unrelated files unless the user expands scope.
