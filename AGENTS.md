@@ -83,6 +83,9 @@ When creating or editing Marimo notebooks in this repo:
 - **Markdown cells sandwich code cells.** Every logical step gets a markdown cell with a heading before the code cell, and a markdown cell with observations after it. This makes the notebook readable and reviewable by humans.
 - **One action per code cell.** Don't put multiple unrelated operations in a single cell. Each cell should do one thing (load data, compute a metric, create a plot).
 - **Use `mo.md()` for markdown cells**, not Python comments. Markdown cells render as rich text in the notebook.
+- **Never re-define an import across cells.** Each import (`import X as Y`) must appear in exactly one cell. If another cell needs the same module, reference the name already defined by the earlier cell — do not write another `import X` or `import X as Z`.
+- **Never re-import symbols already defined elsewhere.** Before writing any import in a new cell, check which modules are already in scope from earlier cells and reference those names instead.
+- **Always run a cell immediately after creating it.** If it errors, fix the issue before moving on — never leave a broken cell behind.
 
 Example structure:
 
