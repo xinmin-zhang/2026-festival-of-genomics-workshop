@@ -184,4 +184,4 @@ After the presentations:
 - Connect with people whose analyses were interesting
 - Discuss different approaches to the same data
 - Follow up on collaboration opportunities
-- Presenters: Eric is available for a career development chat — [book a time](https://calendly.com/ericmjl/45-minute-meeting)
+- Presenters: Eric is available for a career development chat — reach out!
