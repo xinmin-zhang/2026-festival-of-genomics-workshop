@@ -93,12 +93,14 @@ Now apply the same principle on your own dataset.
 
 ### Pick a dataset
 
-Browse the [dataset catalog](./datasets.md) and pick one that interests you. Or use your own data.
+Here are the recommended datasets for hack time, with links and starter prompts. For the full catalog, see [datasets.md](./datasets.md).
 
 ### Create your notebook
 
+Replace the filename with your own given name and surname:
+
 ```bash
-uvx marimo edit --sandbox --no-token notebooks/your-name-analysis.py
+uvx marimo edit --sandbox --no-token notebooks/givenname-surname.py
 ```
 
 ### Apply the principle
@@ -106,25 +108,54 @@ uvx marimo edit --sandbox --no-token notebooks/your-name-analysis.py
 For each analysis step:
 
 1. **State your question** — Write it as a markdown cell or comment before you write any code
-2. **Write the code** — Use the AI agent to help, but review what it produces
-3. **Inspect the result** — Look at the output before moving on. Does it make sense?
-4. **Validate with domain knowledge** — "In my field, X matters, so I should check Y"
-5. **Move to the next question** — Only after validating the current one
+2. **Load data from source** — Pull data directly from the URL using polars or pandas. No downloaded files, no hardcoded local paths. If you need a cache, use DVC.
+3. **Write the code** — Use the AI agent to help, but review what it produces
+4. **Inspect the result** — Look at the output before moving on. Does it make sense?
+5. **Validate with domain knowledge** — "In my field, X matters, so I should check Y"
+6. **Move to the next question** — Only after validating the current one
 
-### Dataset-specific starter prompts
+### Suggested datasets and potential questions
 
-**Drug discovery (Hetionet):**
-> I'm exploring a drug discovery dataset that maps gene neighborhoods to drug molecules. My first question: how many unique drugs are in this dataset, and what do the gene neighborhood features look like?
+Full disclosure: Eric hasn't worked with these datasets before either. This is genuine exploration — you and the instructor are in the same boat. That's the point. The methodical approach works even when you're seeing the data for the first time.
 
-**Antibiotic resistance:**
-> I'm looking at protein sequences labeled for antibiotic resistance. My first question: how many sequences are resistant to each antibiotic, and is there overlap (multi-drug resistance)?
+**Drug discovery — Hetionet** ([dataset](https://huggingface.co/datasets/khairi/drug-discovery-hetionet), ~2 MB, Parquet)
+- How many unique drugs are in this dataset, and what do the gene neighborhood features look like?
+- Which gene neighborhoods are most druggable?
+- What molecular properties cluster together?
 
-**Breast cancer diagnostics:**
-> I'm analyzing breast cancer diagnostic features from fine needle aspirates. My first question: which features show the largest difference between malignant and benign tumors?
+**Drug repurposing — DRKG** ([dataset](https://huggingface.co/datasets/khairi/drug-discovery-drkg), <5 MB, Parquet)
+- Which drugs have the most disease targets?
+- Are there surprising drug-disease connections?
+
+**Antibiotic resistance classification** ([dataset](https://huggingface.co/datasets/biomap-research/antibiotic_resistance), ~1.5 MB, Parquet)
+- How many sequences are resistant to each antibiotic, and is there overlap (multi-drug resistance)?
+- Are there sequence patterns that predict resistance class?
+
+**Breast cancer diagnostics** ([dataset](https://huggingface.co/datasets/scikit-learn/breast-cancer-wisconsin), ~128 KB, CSV)
+- Which features show the largest difference between malignant and benign tumors?
+- Are there clusters within the malignant samples?
+
+**Protein-peptide binding** ([dataset](https://huggingface.co/datasets/ronig/protein_binding_sequences), ~5 MB, CSV)
+- What sequence motifs predict binding?
+- Are there binding preferences by protein family?
+
+**Drug induced autoimmunity** ([dataset](https://archive.ics.uci.edu/dataset/1104/drug_induced_autoimmunity_prediction), <1 MB, CSV)
+- Which molecular descriptors correlate with autoimmunity risk?
+- Are there structural alerts in the data?
+
+**Splice junction gene sequences** ([dataset](https://archive.ics.uci.edu/dataset/69/molecular+biology+splice+junction+gene+sequences), <1 MB, CSV)
+- What sequence motifs distinguish exon-intron boundaries?
+- Can you build a simple classifier?
+
+**Pesticide toxicity to honey bees** ([dataset](https://archive.ics.uci.edu/dataset/995/apistox), <1 MB, CSV)
+- What chemical properties predict bee toxicity?
+- Are certain pesticide classes more dangerous?
 
 ---
 
 ## Phase 3: presentations (20 min)
+
+We will invite 3 participants to present what they worked on during hack time. If you're selected, use the structure below to walk us through your analysis.
 
 ### How to present
 
@@ -142,7 +173,7 @@ When you present your notebook:
 
 1. Push your notebook to your fork
 2. Open a pull request against [github.com/ericmjl/2026-festival-of-genomics-workshop](https://github.com/ericmjl/2026-festival-of-genomics-workshop)
-3. In the PR description, include a 2-3 sentence summary of your analysis
+3. Ask your agent to use the `gh` CLI to open the PR with a summary of your analysis
 
 ---
 
@@ -153,4 +184,4 @@ After the presentations:
 - Connect with people whose analyses were interesting
 - Discuss different approaches to the same data
 - Follow up on collaboration opportunities
-- Presenters: Eric is available for a career development chat — reach out!
+- Presenters: Eric is available for a career development chat — [book a time](https://calendly.com/ericmjl/45-minute-meeting)

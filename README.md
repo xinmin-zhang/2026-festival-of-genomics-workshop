@@ -6,11 +6,12 @@ Made with :heart: by Eric Ma (@ericmjl).
 
 ## Setup Instructions (Workshop Participants)
 
-You need three things before the workshop begins:
+You need four things before the workshop begins:
 
 1. **Git** — to clone this repository
 2. **[uv](https://docs.astral.sh/uv/getting-started/installation/)** — to run Marimo notebooks with automatic dependency resolution
-3. **Internet connection** — to pull datasets from source and use the AI pair coding feature
+3. **[GitHub CLI (`gh`)](https://cli.github.com/)** — to open pull requests from the command line during presentations
+4. **Internet connection** — to pull datasets from source and use the AI pair coding feature
 
 ### Step 1: Fork the repo
 

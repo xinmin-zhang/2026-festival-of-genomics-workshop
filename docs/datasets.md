@@ -53,7 +53,7 @@ stereoselectivity = pd.read_csv(StringIO(scraper.get(f"{base}/cs1c02786_si_003.c
 
 ### Drug Induced Autoimmunity Prediction
 
-- **URL**: https://archive.ics.uci.edu/dataset/drug+induced+autoimmunity+prediction
+- **URL**: https://archive.ics.uci.edu/dataset/1104/drug_induced_autoimmunity_prediction
 - **Format**: CSV (<1 MB)
 - **Domain**: Computational toxicology / drug safety
 - **Description**: 477 drug compounds with 195 molecular descriptors (from RDKit).
@@ -117,7 +117,7 @@ stereoselectivity = pd.read_csv(StringIO(scraper.get(f"{base}/cs1c02786_si_003.c
 
 ### Splice Junction Gene Sequences
 
-- **URL**: https://archive.ics.uci.edu/dataset/molecular-biology-splice-junction-gene-sequences
+- **URL**: https://archive.ics.uci.edu/dataset/69/molecular+biology+splice+junction+gene+sequences
 - **Format**: CSV (<1 MB)
 - **Domain**: Genomics / DNA sequence analysis
 - **Description**: 3,190 primate splice-junction DNA sequences (60 bases each) classified as exon/intron boundaries.
@@ -129,7 +129,7 @@ stereoselectivity = pd.read_csv(StringIO(scraper.get(f"{base}/cs1c02786_si_003.c
 
 ### ApisTox — Pesticide Toxicity to Honey Bees
 
-- **URL**: https://archive.ics.uci.edu/dataset/apistox
+- **URL**: https://archive.ics.uci.edu/dataset/995/apistox
 - **Format**: CSV (<1 MB)
 - **Domain**: Environmental toxicology / cheminformatics
 - **Description**: 1,040 chemicals with 13 features predicting toxicity to honey bees.
